@@ -1,0 +1,111 @@
+{
+ "seasons": {
+  "2021-22": {
+   "team_games": [
+    82
+   ],
+   "missing_team_pages": [],
+   "stat_players": 605,
+   "salary_players": 624,
+   "stat_players_with_salary": 558,
+   "salary_players_zero_gp": 19,
+   "dropped_zero_gp_not_active": 33,
+   "dropped_examples": [
+    "Al-Farouq Aminu",
+    "Joakim Noah",
+    "Timofey Mozgov",
+    "Ryan Anderson",
+    "Luol Deng",
+    "Jon Leuer",
+    "Andrew Nicholson",
+    "Marc Gasol"
+   ]
+  },
+  "2022-23": {
+   "team_games": [
+    82
+   ],
+   "missing_team_pages": [],
+   "stat_players": 539,
+   "salary_players": 492,
+   "stat_players_with_salary": 485,
+   "salary_players_zero_gp": 7,
+   "dropped_zero_gp_not_active": 19,
+   "dropped_examples": [
+    "Derrick Favors",
+    "David Nwaba",
+    "Maurice Harkless",
+    "Trey Burke",
+    "Andrew Nicholson",
+    "Marquese Chriss",
+    "Killian Tillie",
+    "Eric Bledsoe"
+   ]
+  },
+  "2023-24": {
+   "team_games": [
+    82
+   ],
+   "missing_team_pages": [],
+   "stat_players": 572,
+   "salary_players": 509,
+   "stat_players_with_salary": 499,
+   "salary_players_zero_gp": 10,
+   "dropped_zero_gp_not_active": 22,
+   "dropped_examples": [
+    "Victor Oladipo",
+    "Khem Birch",
+    "John Wall",
+    "Rudy Gay",
+    "Ricky Rubio",
+    "Andrew Nicholson",
+    "Dewayne Dedmon",
+    "Montrezl Harrell"
+   ]
+  },
+  "2024-25": {
+   "team_games": [
+    82
+   ],
+   "missing_team_pages": [],
+   "stat_players": 569,
+   "salary_players": 493,
+   "stat_players_with_salary": 489,
+   "salary_players_zero_gp": 4,
+   "dropped_zero_gp_not_active": 25,
+   "dropped_examples": [
+    "Bojan Bogdanovi\u0107",
+    "D\u0101vis Bert\u0101ns",
+    "Cody Zeller",
+    "Nassir Little",
+    "Christian Wood",
+    "Devonte' Graham",
+    "Dewayne Dedmon",
+    "Keita Bates-Diop"
+   ]
+  },
+  "2025-26": {
+   "team_games": [
+    82
+   ],
+   "missing_team_pages": [],
+   "stat_players": 582,
+   "salary_players": 503,
+   "stat_players_with_salary": 498,
+   "salary_players_zero_gp": 5,
+   "dropped_zero_gp_not_active": 19,
+   "dropped_examples": [
+    "Terry Rozier",
+    "Thomas Sorber",
+    "Nassir Little",
+    "Keon Johnson",
+    "Dant\u00e9 Exum",
+    "JaVale McGee",
+    "Nikola Djurisic",
+    "Vasilije Mici\u0107"
+   ]
+  }
+ },
+ "total_records": 2912,
+ "with_salary": 2574
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA Games Missed vs. Salary · 2021-22 to 2025-26</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="eyebrow">NBA · Availability report</div>
+    <h1>Who's getting paid to sit?</h1>
+    <p class="muted">Games missed vs. salary, minutes and usage over the last five regular seasons (2021-22 → 2025-26).</p>
+  </header>
+
+  <section class="filters card" aria-label="Filters">
+    <label>Season<select id="f-season"></select></label>
+    <label>Team<select id="f-team"></select></label>
+    <label>Salary min ($M)<input id="f-smin" type="number" min="0" step="1" value="0"></label>
+    <label>Salary max ($M)<input id="f-smax" type="number" min="0" step="1" placeholder="any"></label>
+    <label>Min GP<input id="f-gp" type="number" min="0" max="82" value="0"></label>
+    <label>Min total minutes<input id="f-min" type="number" min="0" step="100" value="0"></label>
+    <label class="grow">Player<input id="f-q" type="search" placeholder="Search player…"></label>
+    <button id="f-reset" class="btn">Reset</button>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="card">
+    <div class="card-head"><h2>Correlation &amp; takeaways</h2><span class="muted small" id="corr-n"></span></div>
+    <div class="corr" id="corr"></div>
+    <ul class="takeaways" id="takeaways"></ul>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <div class="card-head">
+        <h2>Games missed vs. <span id="sc-xlabel">salary</span></h2>
+        <div class="seg" id="sc-x">
+          <button data-x="salary" aria-pressed="true">Salary</button>
+          <button data-x="mpg">MPG</button>
+          <button data-x="usg">USG%</button>
+        </div>
+      </div>
+      <div class="chart-box"><canvas id="scatter"></canvas></div>
+      <p class="muted small">Each dot is one player-season. Hover for details.</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><h2>Avg games missed by salary tier</h2></div>
+      <div class="chart-box"><canvas id="tiers"></canvas></div>
+      <p class="muted small" id="tier-note"></p>
+    </section>
+  </div>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Player leaderboard <span class="muted small" id="lb-scope"></span></h2>
+      <div class="seg" id="lb-mode">
+        <button data-m="missed" aria-pressed="true">Most games missed</button>
+        <button data-m="lost">Most $ paid for missed games</button>
+      </div>
+    </div>
+    <ol class="leader" id="leader"></ol>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>Player-seasons</h2><span class="muted small" id="tbl-n"></span></div>
+    <div class="table-wrap">
+      <table id="tbl">
+        <thead><tr>
+          <th data-k="player" class="l">Player</th>
+          <th data-k="season" class="l">Season</th>
+          <th data-k="team" class="l">Team</th>
+          <th data-k="salary">Salary</th>
+          <th data-k="gp">GP</th>
+          <th data-k="missed">Missed</th>
+          <th data-k="pct_missed">% Missed</th>
+          <th data-k="mpg">MPG</th>
+          <th data-k="min">Minutes</th>
+          <th data-k="usg">USG%</th>
+          <th data-k="sal_per_gp">$ / GP</th>
+          <th data-k="lost">$ "lost"</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button id="more" class="btn more">Show more</button>
+  </section>
+
+  <footer class="muted small" id="footer">
+    <p><strong>Method.</strong> Games missed = team regular-season games (82 every season in this window) − player games played. Traded players: 82 − combined GP across all teams, team shown as e.g. <code>BRK/PHI</code>. Players on a team's salary sheet with 0 GP count as 82 missed. "$ lost" = salary × missed ÷ 82 (a cap-hit proration, not money actually forfeited). "$ / GP" = salary ÷ games played. In-Season Tournament final not counted (it's not a regular-season game). Missed games include injury, illness, rest, suspension, personal leave, two-way/G League assignments, and DNP-coach's decision — the data can't tell them apart.</p>
+    <p><strong>Sources.</strong> Stats: Basketball-Reference league per-game &amp; advanced tables (<a href="https://www.basketball-reference.com/leagues/NBA_2026_per_game.html">per game</a>, <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">advanced</a>, 2022–2026). Salaries: Basketball-Reference team pages, "Salaries" table (e.g. <a href="https://www.basketball-reference.com/teams/BOS/2025.html">BOS 2025</a>). Players joined by Basketball-Reference player ID. <span id="match-note"></span> Data pulled Oct 30, 2026. Dataset: <a href="data/player_seasons.csv">player_seasons.csv</a> · <a href="data.json">data.json</a>.</p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
